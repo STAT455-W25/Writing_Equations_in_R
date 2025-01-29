@@ -1,17 +1,44 @@
 ---
-title: "Untitled"
+title: "Equations in R Markdown"
 format: pdf
 editor: visual
 ---
 
+Single Equation:
+
 $$
 Y_{i}=\beta_{0}+\beta_{1}\textrm{Yearnew}_{i}+\beta_{2}\textrm{Fast}_{i}+\epsilon_{i}\quad \textrm{where}\quad \epsilon_{i}\sim \textrm{N}(0,\sigma^2).
 $$
-
+Equation split between two lines: 
 
 $$
 \begin{split}
 Y_{i}&= \beta_{0}+\beta_{1}\textrm{Yearnew}_{i}+\beta_{2}\textrm{Fast}_{i} \\
       &{}+\beta_{3}\textrm{Yearnew}_{i}\times\textrm{Fast}_{i}+\epsilon_{i}\quad \textrm{where}\quad \epsilon_{i}\sim \textrm{N}(0,\sigma^2)
 \end{split}
+$$
+
+Linear mixed effects model with random slopes:    
+
+$$
+\begin{split}
+Y_{ij} & = [\alpha_{0}+\alpha_1\textrm{Orch}_{i}+\beta_0\textrm{LargeEns}_{ij} + \beta_1\textrm{Orch}_{i}\textrm{LargeEns}_{ij}] \\
+  \textrm{} &+ [u_{i}+v_{i}\textrm{LargeEns}_{ij}+\epsilon_{ij}]
+\end{split}
+$$
+
+
+$\epsilon_{ij}\sim N(0,\sigma^2)$, and 
+
+$$
+\left[ \begin{array}{c}
+            u_{i} \\ v_{i}
+          \end{array}  \right] \sim N \left( \left[
+          \begin{array}{c}
+            0 \\ 0
+          \end{array} \right], \left[
+          \begin{array}{cc}
+            \sigma_{u}^{2} & \rho_{uv}\sigma_{u}\sigma_v \\
+            \rho_{uv}\sigma_{u}\sigma_v & \sigma_{v}^{2}
+          \end{array} \right] \right) 
 $$
